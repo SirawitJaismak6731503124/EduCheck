@@ -46,7 +46,7 @@ class _CheckInScreenState extends State<CheckInScreen> {
         return;
       }
       final pos = await Geolocator.getCurrentPosition(
-        locationSettings: const LocationSettings(accuracy: LocationAccuracy.high),
+        desiredAccuracy: LocationAccuracy.high,
       );
       setState(() => _position = pos);
     } catch (e) {

@@ -42,10 +42,12 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
         elevation: 0,
         actions: [
           IconButton(
-            icon: ValueListenableBuilder(
-              valueListenable: _controller.torchState,
+            icon: ValueListenableBuilder<MobileScannerState>(
+              valueListenable: _controller,
               builder: (_, state, __) => Icon(
-                state == TorchState.on ? Icons.flash_on : Icons.flash_off,
+                state.torchState == TorchState.on
+                    ? Icons.flash_on
+                    : Icons.flash_off,
               ),
             ),
             onPressed: _controller.toggleTorch,
